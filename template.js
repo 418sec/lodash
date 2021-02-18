@@ -137,10 +137,11 @@ var hasOwnProperty = objectProto.hasOwnProperty;
  *   };\
  * ');
  */
-function template(string, options, guard) {
+function template(string, opts, guard) {
   // Based on John Resig's `tmpl` implementation
   // (http://ejohn.org/blog/javascript-micro-templating/)
   // and Laura Doktorova's doT.js (https://github.com/olado/doT).
+  var options = opts ? JSON.stringify(opts) : 'undefined';
   var settings = templateSettings.imports._.templateSettings || templateSettings;
 
   if (guard && isIterateeCall(string, options, guard)) {
